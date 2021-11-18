@@ -10,6 +10,7 @@
   },
   "author": "Anil Kumar N",
   "dependencies": {
-    "newman": "^5.3.0"
+    "newman": "^5.3.0",
+    "reporter": "^0.1.0"
   }
 }
