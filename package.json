@@ -6,7 +6,7 @@
     "test": "tests"
   },
   "scripts": {
-    "api-tests-production": "newman run tests/example.com.postman_collection.json"
+    "api-tests-production": "newman run tests/example.com.postman_collection.json --reporters cli, junit --reporter-junit-export api-newman.xml"
   },
   "author": "Anil Kumar N",
   "dependencies": {
