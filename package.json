@@ -6,7 +6,8 @@
     "test": "tests"
   },
   "scripts": {
-    "api-tests-production": "newman run tests/Delixus.postman_collection.json --reporters cli,junit --reporter-junit-export newman.xml"
+    // "api-tests-production": "newman run tests/Delixus.postman_collection.json --reporters cli,junit --reporter-junit-export newman.xml"
+    "api-tests-production": "newman run tests/Delixus.postman_collection.json"
   },
   "author": "Anil Kumar N",
   "dependencies": {
