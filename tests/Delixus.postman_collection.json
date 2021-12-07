@@ -11,7 +11,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://13.126.95.15/api/startScan?solidityFile=Adoption.sol&basePath=/data/delixus&scanName=Testing-From-Postman",
+					"raw": "http://13.126.95.15/api/startScan?solidityFile=Adoption.sol&basePath=/data/delixus&scanName=Pipeline",
 					"protocol": "http",
 					"host": [
 						"13",
@@ -34,7 +34,7 @@
 						},
 						{
 							"key": "scanName",
-							"value": "Testing-From-Postman"
+							"value": "Pipeline"
 						}
 					]
 				}
