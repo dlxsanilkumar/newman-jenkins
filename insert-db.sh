@@ -9,14 +9,14 @@ case $GET_VULN_DATA in
 	 echo "See the details below for more information."
 
 	 echo "--- insert into build_ids table ---"
-	 psql -h 13.126.95.15 -p 5432 -U postgres -d solidityscan -w -c "INSERT INTO build_ids (build_id, jobname, status) VALUES (${BUILD_NUMBER}, 'FAILURE');";
-	 psql -h 13.126.95.15 -p 5432 -U postgres -d solidityscan -w -c "SELECT * FROM solidityscans ORDER BY scanid DESC LIMIT 1"; exit 1;
+	 psql -h 13.126.95.15 -p 5432 -U postgres -d solidityscan -w -c "INSERT INTO build_ids (build_id, jobname, status) VALUES (${BUILD_NUMBER}, ${JOB_NAME}, 'FAILURE');";
+	 psql -h 13.126.95.15 -p 5432 -U postgres -d solidityscan -w -c "SELECT * FROM build_ids ORDER BY scanid DESC LIMIT 1"; exit 1;
 	 ;;
      *)
      echo Build is completed successfully...
 	 
 	 echo "--- insert into build_ids table ---"
-	 psql -h 13.126.95.15 -p 5432 -U postgres -d solidityscan -w -c "INSERT INTO build_ids (build_id, jobname, status) VALUES (${BUILD_NUMBER}, 'SUCCESS');";
-	 psql -h 13.126.95.15 -p 5432 -U postgres -d solidityscan -w -c "SELECT * FROM solidityscans ORDER BY scanid DESC LIMIT 1"; exit 0;
+	 psql -h 13.126.95.15 -p 5432 -U postgres -d solidityscan -w -c "INSERT INTO build_ids (build_id, jobname, status) VALUES (${BUILD_NUMBER}, ${JOB_NAME}, 'SUCCESS');";
+	 psql -h 13.126.95.15 -p 5432 -U postgres -d solidityscan -w -c "SELECT * FROM build_ids ORDER BY scanid DESC LIMIT 1"; exit 0;
 	 ;;
 esac
