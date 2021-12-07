@@ -1,0 +1,46 @@
+{
+	"info": {
+		"_postman_id": "e414bb06-82a2-461a-9a41-ddb43df83f83",
+		"name": "Delixus",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://13.126.95.15:5000/api/startScan?solidityFile=mapping_write.sol&basePath=/home/ubuntu/mythril-scan/solidityFiles/sol0.4.25&scanName=Testing-From-Postman",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://13.126.95.15:5000/api/startScan?solidityFile=mapping_write.sol&basePath=/home/ubuntu/mythril-scan/solidityFiles/sol0.4.25&scanName=Testing-From-Postman",
+					"protocol": "http",
+					"host": [
+						"13",
+						"126",
+						"95",
+						"15"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"startScan"
+					],
+					"query": [
+						{
+							"key": "solidityFile",
+							"value": "mapping_write.sol"
+						},
+						{
+							"key": "basePath",
+							"value": "/home/ubuntu/mythril-scan/solidityFiles/sol0.4.25"
+						},
+						{
+							"key": "scanName",
+							"value": "Testing-From-Postman"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,32 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Get source code from a GitHub repository') {
+            steps {
+                git branch: 'main',
+				credentialsId: 'c2f37cb0-8175-4ab6-92a5-85b7d838707b',
+				url: 'git@github.com:dlxsanilkumar/newman-jenkins.git'
+            }
+        }
+		stage('Build') {
+		    steps {
+		        sh 'npm install'
+		    }
+    	}
+		stage('Test') {
+	    steps {
+			script {
+	         // sh "Testing started..."
+			 try {
+		        sh 'npm run api-tests-production'
+				currentBuild.result = 'SUCCESS'
+			} catch (Exception ex) {
+				currentBuild.result = 'FAILUER'					
+		   	    }
+			 junit 'newman.xml'
+	       }
+	     }
+	   }
+    }
+}
