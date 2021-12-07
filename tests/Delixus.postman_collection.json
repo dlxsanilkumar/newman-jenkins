@@ -6,7 +6,7 @@
 	},
 	"item": [
 		{
-			"name": "http://13.126.95.15:5000/api/startScan?solidityFile=mapping_write.sol&basePath=/data/delixus/&scanName=Testing-From-Postman",
+			"name": "Scan",
 			"request": {
 				"method": "GET",
 				"header": [],
