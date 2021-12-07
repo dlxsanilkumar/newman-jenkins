@@ -24,7 +24,7 @@ pipeline {
 			} catch (Exception ex) {
 				currentBuild.result = 'FAILUER'					
 		   	    }
-			 junit 'newman.xml'
+			 # junit 'newman.xml'
 	       }
 	     }
 	   }
