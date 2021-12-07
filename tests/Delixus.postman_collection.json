@@ -6,12 +6,12 @@
 	},
 	"item": [
 		{
-			"name": "http://13.126.95.15:5000/api/startScan?solidityFile=mapping_write.sol&basePath=/home/ubuntu/mythril-scan/solidityFiles/sol0.4.25&scanName=Testing-From-Postman",
+			"name": "http://13.126.95.15:5000/api/startScan?solidityFile=mapping_write.sol&basePath=/data/delixus/&scanName=Testing-From-Postman",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://13.126.95.15:5000/api/startScan?solidityFile=mapping_write.sol&basePath=/home/ubuntu/mythril-scan/solidityFiles/sol0.4.25&scanName=Testing-From-Postman",
+					"raw": "http://13.126.95.15/api/startScan?solidityFile=Adoption.sol&basePath=/data/delixus&scanName=Testing-From-Postman",
 					"protocol": "http",
 					"host": [
 						"13",
@@ -19,7 +19,6 @@
 						"95",
 						"15"
 					],
-					"port": "5000",
 					"path": [
 						"api",
 						"startScan"
@@ -27,11 +26,11 @@
 					"query": [
 						{
 							"key": "solidityFile",
-							"value": "mapping_write.sol"
+							"value": "Adoption.sol"
 						},
 						{
 							"key": "basePath",
-							"value": "/home/ubuntu/mythril-scan/solidityFiles/sol0.4.25"
+							"value": "/data/delixus"
 						},
 						{
 							"key": "scanName",
