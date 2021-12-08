@@ -11,7 +11,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://13.126.95.15/api/startScan?solidityFile=Migrations.sol&basePath=/data/delixus&scanName=Pipeline",
+					"raw": "http://13.126.95.15/api/startScan?solidityFile=odd_even.sol&basePath=/data/delixus&scanName=Pipeline",
 					"protocol": "http",
 					"host": [
 						"13",
@@ -26,7 +26,7 @@
 					"query": [
 						{
 							"key": "solidityFile",
-							"value": "Migrations.sol"
+							"value": "odd_even.sol"
 						},
 						{
 							"key": "basePath",
