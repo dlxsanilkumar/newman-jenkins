@@ -9,12 +9,22 @@ pipeline {
 				url: 'git@github.com:dlxsanilkumar/newman-jenkins.git'
             }
         }
-		stage('Build') {
+		stage('BUILD') {
 		    steps {
 		        sh 'npm install'
 		    }
     	}
-		stage('Test') {
+    	stage('UPLOAD SOLIDITY FILE') {
+		    steps {
+		        sh 'sh upload-solidity-files.sh'
+		    }
+    	}
+    	stage('UPDATE BUILD NUMBER') {
+		    steps {
+		        sh 'sh update-build-number.sh'
+		    }
+    	}    	
+		stage('START SCAN') {
 	    steps {
 			script {
 	         // sh "Testing started..."
@@ -24,9 +34,19 @@ pipeline {
 			} catch (Exception ex) {
 				currentBuild.result = 'FAILUER'					
 		   	    }
-			 # junit 'newman.xml'
+			// junit 'newman.xml'
 	       }
 	     }
 	   }
+    	stage('INSERT INTO DATABASE') {
+		    steps {
+		        sh 'sh insert-db.sh'
+		    }
+    	}
+    	stage('BUILD STATUS') {
+		    steps {
+		        sh 'sh check-build-status.sh'
+		    }
+    	}
     }
 }
