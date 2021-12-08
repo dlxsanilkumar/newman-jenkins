@@ -28,6 +28,7 @@ res=`grep ERROR: db.log | awk '{ print $1 }' | tail -1`
 
 if [ "$res" = "ERROR:"  ]; then
    echo "Database error!"
+   echo "Please see the result.log in the Workspaces for more details."
    exit 1;
 else
    echo "Database updated."
