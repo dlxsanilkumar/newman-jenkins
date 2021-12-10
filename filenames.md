@@ -1,2 +1,2 @@
-Adoption.sol
+delixus-contact.sol
 Migrations.sol
