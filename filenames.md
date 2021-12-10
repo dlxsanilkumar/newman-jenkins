@@ -1,1 +1,2 @@
 Adoption.sol
+Migrations.sol
