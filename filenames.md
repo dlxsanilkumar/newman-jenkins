@@ -1,2 +1,2 @@
-delixus-contact.sol
 Migrations.sol
+delixus-contact.sol
