@@ -1,6 +1,6 @@
 #!/bin/bash
 
-psql -h 13.126.95.15 -p 5432 -U postgres -d solidityscan -w -c "SELECT status FROM build_ids ORDER BY id DESC LIMIT 1" > build.log 2>&1;
+psql -h 13.126.95.15 -p 5432 -U postgres -d solidityscan -w -c "SELECT status FROM build_ids ORDER BY id DESC LIMIT `cat count.txt`" > build.log 2>&1;
 BUILD_STATUS=`awk 'FNR == 3 {print $1}' build.log;`
 
 # Fail build, if vulnPresent.
