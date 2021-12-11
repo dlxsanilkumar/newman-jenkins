@@ -1,6 +1,6 @@
 #!/bin/bash
 
-psql -h 13.126.95.15 -p 5432 -U postgres -d solidityscan -w -c "SELECT result FROM solidityscans ORDER BY scanid DESC LIMIT 1" > result.log 2>&1;
+psql -h 13.126.95.15 -p 5432 -U postgres -d solidityscan -w -c "SELECT result FROM solidityscans ORDER BY scanid DESC LIMIT `cat count.txt`" > result.log 2>&1;
 GET_VULN_DATA=`awk 'FNR == 3 {print $1}' result.log;`
 
 case $GET_VULN_DATA in
@@ -11,7 +11,7 @@ case $GET_VULN_DATA in
 	 echo "--- insert into build_ids table ---"
 	 psql -h 13.126.95.15 -p 5432 -U postgres -d solidityscan -w -c "INSERT INTO build_ids (build_id, jobname, status) VALUES (${BUILD_NUMBER}, '${JOB_NAME}', 'FAILURE');" > db.log 2>&1;
 	 echo "Data from solidityscans table."
-	 psql -h 13.126.95.15 -p 5432 -U postgres -d solidityscan -w -c "SELECT * FROM solidityscans ORDER BY scanid DESC LIMIT 1";
+	 psql -h 13.126.95.15 -p 5432 -U postgres -d solidityscan -w -c "SELECT * FROM solidityscans ORDER BY scanid DESC LIMIT `cat count.txt`";
 	 echo "Data from build_ids table."
 	 psql -h 13.126.95.15 -p 5432 -U postgres -d solidityscan -w -c "SELECT * FROM build_ids ORDER BY id DESC LIMIT 1";
 	 ;;
@@ -21,7 +21,7 @@ case $GET_VULN_DATA in
 	 echo "--- insert into build_ids table ---"
 	 psql -h 13.126.95.15 -p 5432 -U postgres -d solidityscan -w -c "INSERT INTO build_ids (build_id, jobname, status) VALUES (${BUILD_NUMBER}, '${JOB_NAME}', 'SUCCESS');" > db.log 2>&1;
 	 echo "Data from solidityscans table."
-	 psql -h 13.126.95.15 -p 5432 -U postgres -d solidityscan -w -c "SELECT * FROM solidityscans ORDER BY scanid DESC LIMIT 1";
+	 psql -h 13.126.95.15 -p 5432 -U postgres -d solidityscan -w -c "SELECT * FROM solidityscans ORDER BY scanid DESC LIMIT `cat count.txt`";
 	 echo "Data from build_ids table."
 	 psql -h 13.126.95.15 -p 5432 -U postgres -d solidityscan -w -c "SELECT * FROM build_ids ORDER BY id DESC LIMIT 1";
 	 ;;
