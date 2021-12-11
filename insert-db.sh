@@ -1,7 +1,8 @@
 #!/bin/bash
 
 psql -h 13.126.95.15 -p 5432 -U postgres -d solidityscan -w -c "SELECT result FROM solidityscans ORDER BY scanid DESC LIMIT `cat count.txt`" > result.log 2>&1;
-GET_VULN_DATA=`awk 'FNR == 3 {print $1}' result.log;`
+# GET_VULN_DATA=`awk 'FNR == 3 {print $1}' result.log;`
+GET_VULN_DATA=`grep -i vulnPresent result.log;`
 
 case $GET_VULN_DATA in
      *vulnPresent*) 
