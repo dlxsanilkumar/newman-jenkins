@@ -26,9 +26,17 @@ pipeline {
     	}    	
 		stage('START SCAN') {
 	    steps {
-		        sh 'python3 py/startScan.py'
-		    }
-    	} 
+			script {
+	         // sh "Testing started..."
+			 try {
+		        sh 'npm run api-tests-production'
+				currentBuild.result = 'SUCCESS'
+			} catch (Exception ex) {
+				currentBuild.result = 'FAILUER'					
+		   	    }
+			// junit 'newman.xml'
+	       }
+	     }
 	   }
     	stage('INSERT INTO DATABASE') {
 		    steps {
