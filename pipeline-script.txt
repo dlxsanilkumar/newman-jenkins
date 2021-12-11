@@ -29,7 +29,6 @@ pipeline {
 		        sh 'python3 py/startScan.py'
 		    }
     	} 
-	   }
     	stage('INSERT INTO DATABASE') {
 		    steps {
 		        sh 'sh insert-db.sh'
